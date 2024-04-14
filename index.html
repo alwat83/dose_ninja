@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dose Ninja</title>
+</head>
+<body>
+    <h1>Welcome to Dose Ninja</h1>
+    <p>Search for drug information:</p>
+    <div class="search-box">
+        <input type="text" class="search-input" placeholder="Please type in your Prescriptions." id="search-input">
+        <button class="search-button" onclick="searchPrescriptions()">Search</button>
+    </div>
+    <div id="results"></div>
+
+    <script>
+        function searchPrescriptions() {
+            // Get the input value
+            const searchTerm = document.getElementById("search-input").value;
+
+            // Define the FDA API URL
+            const apiUrl = "https://api.fda.gov/drug/label.json?search=" + searchTerm;
+
+            // Make an HTTP request to the FDA API
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the FDA API response data and update the HTML
+                    const resultsDiv = document.getElementById("results");
+                    resultsDiv.innerHTML = "";
+
+                    // Check if there are any results
+                    if (data.results.length > 0) {
+                        // Display the first result (you can loop through and display more if needed)
+                        const firstResult = data.results[0];
+                        resultsDiv.innerHTML = `
+                            <h2>${firstResult.openfda.brand_name || 'Unknown Brand'}</h2>
+                            <p>Generic Name: ${firstResult.openfda.generic_name || 'Unknown Generic Name'}</p>
+                            <p>Manufacturer: ${firstResult.openfda.manufacturer_name || 'Unknown Manufacturer'}</p>
+                            <p>Description: ${firstResult.description || 'No description available'}</p>
+                        `;
+                    } else {
+                        resultsDiv.innerHTML = "No results found.";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+    </script>
+</body>
+</html>
