@@ -1,0 +1,87 @@
+
+import React, { useState } from 'react';
+
+const AddPrescriptionForm = () => {
+  const [prescription, setPrescription] = useState({
+    medicationName: '',
+    dosage: '',
+    frequency: '',
+    startDate: '',
+    endDate: '',
+    notes: ''
+  });
+
+  const handleChange = (e) => {
+    setPrescription({ ...prescription, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Here you would typically send the prescription to the backend API
+    console.log(prescription);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h2>Add New Prescription</h2>
+      <label>
+        Medication Name:
+        <input
+          type="text"
+          name="medicationName"
+          value={prescription.medicationName}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Dosage:
+        <input
+          type="text"
+          name="dosage"
+          value={prescription.dosage}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Frequency:
+        <input
+          type="text"
+          name="frequency"
+          value={prescription.frequency}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Start Date:
+        <input
+          type="date"
+          name="startDate"
+          value={prescription.startDate}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        End Date:
+        <input
+          type="date"
+          name="endDate"
+          value={prescription.endDate}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Notes:
+        <textarea
+          name="notes"
+          value={prescription.notes}
+          onChange={handleChange}
+        />
+      </label>
+      <button type="submit">Add Prescription</button>
+    </form>
+  );
+};
+
+export default AddPrescriptionForm;
+```
+

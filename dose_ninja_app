@@ -1,0 +1,83 @@
+
+
+// Import necessary modules
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+const { OAuth2Client } = require('google-auth-library');
+
+// Initialize Express app
+const app = express();
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost/doseninja', { useNewUrlParser: true, useUnifiedTopology: true });
+
+// Define a schema for prescriptions
+const prescriptionSchema = new mongoose.Schema({
+  userId: String,
+  medicationName: String,
+  dosage: String,
+  frequency: String,
+  startDate: Date,
+  endDate: Date,
+  notes: String
+});
+
+// Create a model from the schema
+const Prescription = mongoose.model('Prescription', prescriptionSchema);
+
+// Middleware to parse request body
+app.use(bodyParser.json());
+
+// OAuth2 client setup
+const client = new OAuth2Client('YOUR_CLIENT_ID');
+
+// Middleware to authenticate JWT tokens
+app.use((req, res, next) => {
+  const token = req.headers.authorization.split(' ')[1]; // Bearer <token>
+  jwt.verify(token, 'YOUR_SECRET_KEY', (err, user) => {
+    if (err) {
+      return res.sendStatus(403);
+    }
+    req.user = user;
+    next();
+  });
+});
+
+// Routes
+app.post('/prescriptions', async (req, res) => {
+  // Create a new prescription
+  const prescription = new Prescription(req.body);
+  await prescription.save();
+  res.status(201).send(prescription);
+});
+
+app.get('/prescriptions/:userId', async (req, res) => {
+  // Retrieve prescriptions for a user
+  const prescriptions = await Prescription.find({ userId: req.params.userId });
+  res.send(prescriptions);
+});
+
+app.put('/prescriptions/:id', async (req, res) => {
+  // Update a prescription
+  const prescription = await Prescription.findByIdAndUpdate(req.params.id, req.body);
+  res.send(prescription);
+});
+
+app.delete('/prescriptions/:id', async (req, res) => {
+  // Delete a prescription
+  await Prescription.findByIdAndDelete(req.params.id);
+  res.sendStatus(204);
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+```
+
+This code snippet provides a basic structure for handling CRUD operations for prescriptions in a Node.js and Express.js environment, with MongoDB as the database. It includes user authentication with JWT and placeholders for OAuth2 client setup. You'll need to replace 'YOUR_CLIENT_ID' and 'YOUR_SECRET_KEY' with your actual credentials.
+
+Remember to handle errors and edge cases in your actual implementation, and ensure that all data is validated and sanitized to prevent security vulnerabilities. Additionally, consider implementing more advanced features like prescription refill reminders, integration with pharmacies, and user permission management based on roles.
