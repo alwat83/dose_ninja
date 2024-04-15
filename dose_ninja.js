@@ -1,14 +1,9 @@
-
-Certainly! Here's a simple one-page website design for "doseninja" with a search field implemented in JavaScript:
-
-html
-Copy code
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>doseninja</title>
+    <title>Dose Ninja</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,7 +53,7 @@ Copy code
 </head>
 <body>
     <div class="header">
-        <h1>doseninja</h1>
+        <h1>Dose Ninja</h1>
     </div>
     <div class="content">
         <div class="search-box">
