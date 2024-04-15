@@ -1,0 +1,34 @@
+const express = require('express');
+const axios = require('axios');
+
+const app = express();
+app.use(express.json());
+
+// Endpoint for checking medication interactions
+app.post('/check-interactions', async (req, res) => {
+  try {
+    // Extract the list of medications from the request body
+    const { medications } = req.body;
+
+    // Make a request to the medication interaction database/API
+    const interactionCheckResponse = await axios.post(
+      'https://medication-interactions-api.com/check-interactions',
+      { medications }
+    );
+
+    // Extract interaction data from the response
+    const interactions = interactionCheckResponse.data;
+
+    // Send the list of interactions back to the client
+    res.json(interactions);
+  } catch (error) {
+    console.error('Error checking medication interactions:', error);
+    res.status(500).json({ error: 'An error occurred while checking medication interactions' });
+  }
+});
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
