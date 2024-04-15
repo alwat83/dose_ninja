@@ -1,0 +1,10 @@
+For the mobile app version of Dose Ninja
+
+
+- **React Native**: A popular framework for building native apps using React. It allows for code reuse across iOS and Android platforms, speeding up development.
+- **Flutter**: Another excellent choice for cross-platform mobile app development. It uses the Dart language and provides a rich set of pre-designed widgets.
+- **Firebase**: A platform developed by Google for creating mobile and web applications. It can be used for user authentication, real-time databases, cloud storage, and hosting.
+- **Redux**: For state management within the app, especially if it's built with React Native.
+- **SQLite**: For local database storage on the device, allowing users to access their medication data offline.
+- **Expo**: An open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
+
