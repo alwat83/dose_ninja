@@ -1,0 +1,343 @@
+
+Dose Ninja README
+
+Welcome to Dose Ninja!
+
+Dose Ninja is a web application designed to help users track and manage their medications with ease. Our goal is to provide a simple, intuitive, and reliable platform for individuals to take control of their medication regimen.
+
+Features
+
+Medication Tracking: Easily log and track your medications, including dosages, frequencies, and refill reminders.
+Personalized Dashboard: View your medication schedule, upcoming doses, and refill alerts in one convenient place.
+Customizable Reminders: Set reminders for medication doses, appointments, and refill dates via email, SMS, or in-app notifications.
+Medication Library: Access a comprehensive database of medications, including drug information, interactions, and side effects.
+Health Journal: Record and track your health metrics, such as blood pressure, weight, and glucose levels.
+Secure and Private: Your data is protected with industry-standard encryption and secure servers.
+Getting Started
+
+Sign Up: Create an account by clicking the "Sign Up" button on the top right corner of the page.
+Add Medications: Enter your medications, including dosages, frequencies, and start dates.
+Set Reminders: Customize your reminders to ensure you never miss a dose.
+Explore the Dashboard: View your medication schedule, upcoming doses, and refill alerts.
+Tips and Best Practices
+
+Regularly Update Your Medication List: Keep your medication list up-to-date to ensure accurate tracking and reminders.
+Set Reminders for Refills: Avoid running out of medication by setting reminders for refills.
+Track Your Health Metrics: Record your health metrics to identify trends and patterns.
+Support
+
+FAQs: Check our FAQs section for answers to common questions.
+Contact Us: Reach out to our support team via email or contact form for assistance.
+Community Forum: Join our community forum to connect with other users, share tips, and provide feedback.
+Development and Contributions
+
+Dose Ninja is an open-source project, and we welcome contributions from developers, designers, and healthcare professionals. If you're interested in contributing, please review our Contributing Guidelines.
+
+License
+
+Dose Ninja is licensed under the MIT License.
+
+Acknowledgments
+
+We would like to acknowledge the following resources that have helped shape Dose Ninja:
+
+OpenMRS
+MedlinePlus
+[RxNorm](https://www.nlm.nih.gov/research/ umls/rxnorm/)
+Stay Connected
+
+Follow us on social media to stay up-to-date with the latest news, updates, and features:
+
+Twitter: @DoseNinja
+Facebook: @DoseNinja
+LinkedIn: @DoseNinja
+Thank you for choosing Dose Ninja!
+
+What technologies are you using for Dose Ninja?
+
+As the developer of Dose Ninja, I'm excited to share the technologies used to build this web application:
+
+Frontend:
+
+React: A JavaScript library for building user interfaces, used for creating the Dose Ninja UI components.
+Redux: A state management library for React, used for managing application state and handling actions.
+Material-UI: A popular React UI component library, used for styling and layout.
+React Router: A library for client-side routing, used for navigating between pages.
+Backend:
+
+Node.js: A JavaScript runtime environment, used for building the server-side API.
+Express.js: A popular Node.js framework, used for building the RESTful API.
+GraphQL: A query language for APIs, used for handling data queries and mutations.
+Apollo Server: A GraphQL server for Node.js, used for building the GraphQL API.
+Database:
+
+PostgreSQL: A relational database management system, used for storing user data and medication information.
+Sequelize: A Node.js ORM (Object-Relational Mapping) library, used for interacting with the PostgreSQL database.
+Authentication and Authorization:
+
+Passport.js: A Node.js authentication middleware, used for handling user authentication and authorization.
+JSON Web Tokens (JWT): A token-based authentication mechanism, used for securing API requests.
+Additional Tools:
+
+Webpack: A JavaScript module bundler, used for building and optimizing the frontend code.
+Babel: A JavaScript transpiler, used for converting modern JavaScript code to older syntax for browser compatibility.
+ESLint: A JavaScript linter, used for enforcing code quality and syntax rules.
+GitHub Actions: A continuous integration and continuous deployment (CI/CD) tool, used for automating testing, building, and deployment.
+Medication Data:
+
+RxNorm API: A API provided by the National Library of Medicine, used for accessing medication data and information.
+MedlinePlus API: A API provided by the National Library of Medicine, used for accessing health information and resources.
+Security:
+
+HTTPS: Used for encrypting data transmitted between the client and server.
+SSL/TLS Certificates: Used for securing the server and ensuring trust with users.
+Secure Password Hashing: Used for storing user passwords securely.
+These technologies work together to provide a robust, scalable, and secure platform for users to track and manage their medications.
+
+Create a presciption managemnt system for the user using these techonligies for the backend for dose ninja?
+
+Here's a high-level design for a prescription management system using the technologies mentioned earlier for the backend of Dose Ninja:
+
+Prescription Management System
+
+The prescription management system will allow users to manage their prescriptions, including tracking medication schedules, dosages, and refill reminders. The system will also allow users to add, edit, and delete prescriptions.
+
+Database Schema
+
+The database schema will consist of the following tables:
+
+users
+id (primary key)
+username
+password (hashed)
+email
+prescriptions
+id (primary key)
+user_id (foreign key referencing the users table)
+medication_name
+dosage
+frequency
+start_date
+end_date
+refill_reminder (boolean)
+medication_schedule
+id (primary key)
+prescription_id (foreign key referencing the prescriptions table)
+dose_date
+dose_time
+taken (boolean)
+API Endpoints
+
+The API will expose the following endpoints:
+
+GET /prescriptions
+Retrieve a list of all prescriptions for a user
+Parameters: user_id
+Response: JSON array of prescription objects
+GET /prescriptions/:id
+Retrieve a single prescription by ID
+Parameters: id
+Response: JSON object representing the prescription
+POST /prescriptions
+Create a new prescription
+Parameters: user_id, medication_name, dosage, frequency, start_date, end_date, refill_reminder
+Response: JSON object representing the created prescription
+PUT /prescriptions/:id
+Update an existing prescription
+Parameters: id, medication_name, dosage, frequency, start_date, end_date, refill_reminder
+Response: JSON object representing the updated prescription
+DELETE /prescriptions/:id
+Delete a prescription
+Parameters: id
+Response: 204 No Content
+GET /medication_schedule
+Retrieve a list of medication schedules for a user
+Parameters: user_id
+Response: JSON array of medication schedule objects
+GET /medication_schedule/:id
+Retrieve a single medication schedule by ID
+Parameters: id
+Response: JSON object representing the medication schedule
+POST /medication_schedule
+Create a new medication schedule
+Parameters: prescription_id, dose_date, dose_time, taken
+Response: JSON object representing the created medication schedule
+PUT /medication_schedule/:id
+Update an existing medication schedule
+Parameters: id, dose_date, dose_time, taken
+Response: JSON object representing the updated medication schedule
+DELETE /medication_schedule/:id
+Delete a medication schedule
+Parameters: id
+Response: 204 No Content
+Business Logic
+
+The business logic will be implemented using Node.js and Express.js. The API endpoints will be secured using Passport.js and JSON Web Tokens (JWT).
+
+Prescription Creation
+Validate user input for prescription creation
+Check for medication interactions and allergies
+Create a new prescription in the database
+Send a confirmation email to the user
+Prescription Updates
+Validate user input for prescription updates
+Check for medication interactions and allergies
+Update the prescription in the database
+Send a confirmation email to the user
+Medication Schedule Generation
+Generate a medication schedule based on the prescription frequency and dosage
+Store the medication schedule in the database
+Refill Reminders
+Check for prescriptions that need refill reminders
+Send a refill reminder email to the user
+RxNorm API Integration
+
+The RxNorm API will be used to retrieve medication information, including medication names, dosages, and frequencies.
+
+MedlinePlus API Integration
+
+The MedlinePlus API will be used to retrieve health information and resources related to medications.
+
+Security
+
+The API will use HTTPS and SSL/TLS certificates to ensure secure data transmission. User passwords will be hashed and stored securely in the database.
+
+This design provides a robust and scalable prescription management system for Dose Ninja, allowing users to manage their prescriptions and medication schedules effectively.
+
+Write the code for this?
+
+Here is an example implementation of the prescription management system using Node.js, Express.js, and PostgreSQL:
+
+prescription-model.js
+
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  user: 'doseninja',
+  host: 'localhost',
+  database: 'doseninja',
+  password: 'password',
+  port: 5432,
+});
+
+class Prescription {
+  async getAllPrescriptions(userId) {
+    const result = await pool.query({
+      text: `SELECT * FROM prescriptions WHERE user_id = $1`,
+      values: [userId],
+    });
+    return result.rows;
+  }
+
+  async getPrescription(id) {
+    const result = await pool.query({
+      text: `SELECT * FROM prescriptions WHERE id = $1`,
+      values: [id],
+    });
+    return result.rows[0];
+  }
+
+  async createPrescription(userId, medicationName, dosage, frequency, startDate, endDate, refillReminder) {
+    const result = await pool.query({
+      text: `INSERT INTO prescriptions (user_id, medication_name, dosage, frequency, start_date, end_date, refill_reminder) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+      values: [userId, medicationName, dosage, frequency, startDate, endDate, refillReminder],
+    });
+    return result.rows[0];
+  }
+
+  async updatePrescription(id, medicationName, dosage, frequency, startDate, endDate, refillReminder) {
+    const result = await pool.query({
+      text: `UPDATE prescriptions SET medication_name = $2, dosage = $3, frequency = $4, start_date = $5, end_date = $6, refill_reminder = $7 WHERE id = $1 RETURNING *`,
+      values: [id, medicationName, dosage, frequency, startDate, endDate, refillReminder],
+    });
+    return result.rows[0];
+  }
+
+  async deletePrescription(id) {
+    await pool.query({
+      text: `DELETE FROM prescriptions WHERE id = $1`,
+      values: [id],
+    });
+  }
+}
+
+module.exports = Prescription;
+
+medication-schedule-model.js
+
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  user: 'doseninja',
+  host: 'localhost',
+  database: 'doseninja',
+  password: 'password',
+  port: 5432,
+});
+
+class MedicationSchedule {
+  async getAllMedicationSchedules(userId) {
+    const result = await pool.query({
+      text: `SELECT * FROM medication_schedule WHERE user_id = $1`,
+      values: [userId],
+    });
+    return result.rows;
+  }
+
+  async getMedicationSchedule(id) {
+    const result = await pool.query({
+      text: `SELECT * FROM medication_schedule WHERE id = $1`,
+      values: [id],
+    });
+    return result.rows[0];
+  }
+
+  async createMedicationSchedule(prescriptionId, doseDate, doseTime, taken) {
+    const result = await pool.query({
+      text: `INSERT INTO medication_schedule (prescription_id, dose_date, dose_time, taken) VALUES ($1, $2, $3, $4) RETURNING *`,
+      values: [prescriptionId, doseDate, doseTime, taken],
+    });
+    return result.rows[0];
+  }
+
+  async updateMedicationSchedule(id, doseDate, doseTime, taken) {
+    const result = await pool.query({
+      text: `UPDATE medication_schedule SET dose_date = $2, dose_time = $3, taken = $4 WHERE id = $1 RETURNING *`,
+      values: [id, doseDate, doseTime, taken],
+    });
+    return result.rows[0];
+  }
+
+  async deleteMedicationSchedule(id) {
+    await pool.query({
+      text: `DELETE FROM medication_schedule WHERE id = $1`,
+      values: [id],
+    });
+  }
+}
+
+module.exports = MedicationSchedule;
+
+prescription-controller.js
+
+const express = require('express');
+const router = express.Router();
+const Prescription = require('./prescription-model');
+const MedicationSchedule = require('./medication-schedule-model');
+
+router.get('/prescriptions', async (req, res) => {
+  const userId = req.user.id;
+  const prescriptions = await Prescription.getAllPrescriptions(userId);
+  res.json(prescriptions);
+});
+
+router.get('/prescriptions/:id', async (req, res) => {
+  const id = req.params.id;
+  const prescription = await Prescription.getPrescription(id);
+  res.json(prescription);
+});
+
+router.post('/prescriptions', async (req, res) => {
+  const userId = req.user.id;
+  const { medicationName, dosage, frequency, startDate, endDate, refillReminder } = req.body;
+  const prescription = await Prescription.createPrescription(userId, medicationName, dosage, frequency,
