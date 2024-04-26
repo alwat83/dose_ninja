@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dose Ninja | Prescription Management Made Easy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.svg" alt="Dose Ninja Logo">
+                <span>Dose Ninja</span>
+            </div>
+            <ul>
+                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#sign-up">Sign Up</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="background">
+                <img src="hero-background.jpg" alt="Hero Background Image">
+            </div>
+            <div class="content">
+                <h1>Take Control of Your Prescriptions with Dose Ninja</h1>
+                <p>Stay on top of your medications and avoid potentially dangerous interactions with our cutting-edge prescription management platform.</p>
+                <button class="cta">Get Started Today</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>What You Can Do with Dose Ninja</h2>
+            <ul>
+                <li>
+                    <i class="icon-medication"></i>
+                    <h3>Medication Tracking</h3>
+                    <p>Keep track of your medications and dosing schedules with ease.</p>
+                </li>
+                <li>
+                    <i class="icon-interaction"></i>
+                    <h3>Drug Interaction Alerts</h3>
+                    <p>Get alerts for potential drug interactions and stay safe.</p>
+                </li>
+                <li>
+                    <i class="icon-reminder"></i>
+                    <h3>Personalized Reminders</h3>
+                    <p>Get customizable reminders to help you stay on track.</p>
+                </li>
+                <li>
+                    <i class="icon-security"></i>
+                    <h3>Secure Storage</h3>
+                    <p>Your data is stored securely and privately.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Users Say</h2>
+            <ul>
+                <li>
+                    <img src="user-1.jpg" alt="User 1 Profile Picture">
+                    <p>"Dose Ninja has been a game-changer for me. I no longer have to worry about forgetting to take my medications or potential interactions."</p>
+                    <span>Rachel, age 32</span>
+                </li>
+                <li>
+                    <img src="user-2.jpg" alt="User 2 Profile Picture">
+                    <p>"I was skeptical at first, but Dose Ninja's drug interaction alerts have already saved me from a potentially dangerous situation."</p>
+                    <span>John, age 55</span>
+                </li>
+                <li>
+                    <img src="user-3.jpg" alt="User 3 Profile Picture">
+                    <p>"I love how easy it is to track my medications and get reminders with Dose Ninja. It's so convenient!"</p>
+                    <span>Emily, age 28</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="call-to-action">
+            <h2>Ready to Take Control of Your Prescriptions?</h2>
+            <p>Sign up for Dose Ninja today and start managing your medications with confidence.</p>
+            <button class="cta">Sign Up Now</button>
+            <ul class="trust-badges">
+                <li><img src="hipaa-logo.png" alt="HIPAA Logo"></li>
+                <li><img src="ssl-logo.png" alt="SSL Logo"></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Dose Ninja. All rights reserved.</p>
+        <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </footer>
