@@ -1,7 +1,7 @@
 // src/app/medication-management/medication-management.component.ts
 import { Component, OnInit } from '@angular/core';
-import { MedicationService } from '../services/medication.service';
 import { Medication } from '../models/medication.model';
+import { MedicationService } from '../services/medication.service';
 
 @Component({
   selector: 'app-medication-management',
