@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [BrowserModule, AppRoutingModule],
   providers: [MedicationService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [MedicationManagementComponent],
 })
 export class AppModule {}
+export class MedicationManagementModule {}
