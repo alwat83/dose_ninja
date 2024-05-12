@@ -1,6 +1,6 @@
 // dashboard.component.ts
 import { Component, OnInit } from '@angular/core';
-import { MedicationService } from '../medication.service';
+import { MedicationService } from '../app/services/medication.service';
 
 @Component({
   selector: 'app-dashboard',
