@@ -11,3 +11,4 @@ import { MedicationService } from './services/medication.service';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+providers: [MedicationService]
