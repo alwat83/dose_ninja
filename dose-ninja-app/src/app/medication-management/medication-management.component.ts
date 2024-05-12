@@ -26,4 +26,5 @@ export class MedicationManagementComponent implements OnInit {
     this.medicationService.deleteMedication(id);
     this.medications = this.medicationService.getMedications();
   }
+  
 }
