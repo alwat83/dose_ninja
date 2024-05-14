@@ -1,27 +1,43 @@
-# DoseNinjaApp
+# Dose Ninja
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+Welcome to **Dose Ninja**, the ultimate platform for tracking and managing your medications with ease and precision.
 
-## Development server
+## About Dose Ninja
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Dose Ninja is designed to help users maintain an accurate schedule for their medication intake. Our platform ensures that you never miss a dose and always have the information you need at your fingertips.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Medication Tracking**: Keep track of your medication schedule, dosages, and frequencies.
+- **Reminders**: Get timely notifications for your next dose.
+- **Medication History**: Review your past medication intake for better health management.
+- **Health Insights**: Gain insights into your health progress and medication effectiveness.
+- **Secure Storage**: Your data is encrypted and stored securely.
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Sign Up**: Create your Dose Ninja account.
+2. **Add Medications**: Enter your medication details and schedule.
+3. **Set Reminders**: Customize your reminder preferences.
+4. **Track Your Health**: Monitor your medication intake and health progress.
 
-## Running unit tests
+## Support
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Need help? Contact our support team at support@doseninja.com.
 
-## Running end-to-end tests
+## Disclaimer
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Dose Ninja is a medication management tool and should not replace professional medical advice. Always consult with your healthcare provider for any health-related decisions.
 
-## Further help
+## License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+## Acknowledgments
+
+- Thanks to all our contributors who have helped make Dose Ninja a reality.
+- Special thanks to healthcare professionals for their invaluable feedback.
+
+---
+
+Dose Ninja - Your trusted companion in health management.
