@@ -1,0 +1,99 @@
+I'd be happy to help you troubleshoot the issue with your Dose Ninja app repository!
+
+After reviewing your GitHub repository, I've identified a few potential reasons why ng serve might not be working as expected. Here are some possible causes:
+
+Missing dependencies: Make sure you have installed all the required dependencies listed in the package.json file by running npm install or yarn install in the project root directory.
+Incorrect project structure: The ng serve command expects a specific project structure. In your repository, the app directory is inside the src directory, which is not the standard Angular project structure. Typically, the app directory should be at the same level as the src directory. You can try moving the app directory one level up to see if that resolves the issue.
+Missing or incorrect angular.json file: The angular.json file is required for Angular projects. It contains configuration settings for the project. In your repository, I couldn't find an angular.json file. You can try creating a new angular.json file with the minimum required configuration settings. Here's an example:
+{
+  "projects": {
+    "dose-ninja-app": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/dose-ninja-app",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dose-ninja-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dose-ninja-app:build:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "dose-ninja-app"
+}
+
+Incorrect main.ts file: The main.ts file is the entry point of your Angular application. In your repository, I couldn't find a main.ts file. You can try creating a new main.ts file with the minimum required code to bootstrap the application. Here's an example:
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+
+Other issues: There might be other issues with your project configuration or code that are preventing ng serve from working. You can try checking the Angular CLI version, ensuring that you have the latest version installed, and reviewing the project code for any syntax errors or inconsistencies.
+To troubleshoot the issue, you can try the following steps:
+
+Run npm install or yarn install to ensure all dependencies are installed.
+Move the app directory one level up to match the standard Angular project structure.
+Create a new angular.json file with the minimum required configuration settings.
+Create a new main.ts file with the minimum required code to bootstrap the application.
+Run ng serve again and check the console output for any error messages.
+If none of these steps resolve the issue, please provide more details about your project, such as the Angular version, Node.js version, and any error messages you're seeing in the console. I'll be happy to help you further!
