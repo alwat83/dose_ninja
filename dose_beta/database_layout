@@ -1,0 +1,57 @@
+Tables:
+
+users
+id (primary key, serial): unique user identifier
+username (varchar): username chosen by the user
+password (varchar): encrypted password
+email (varchar): user's email address
+created_at (timestamp): timestamp when the user account was created
+updated_at (timestamp): timestamp when the user account was last updated
+prescriptions
+id (primary key, serial): unique prescription identifier
+user_id (integer, foreign key references users.id): user who owns the prescription
+medication_name (varchar): name of the medication
+dosage (varchar): dosage instructions
+frequency (varchar): frequency of taking the medication
+start_date (date): start date of the prescription
+end_date (date): end date of the prescription
+refill_reminder (boolean): whether to send a refill reminder
+created_at (timestamp): timestamp when the prescription was created
+updated_at (timestamp): timestamp when the prescription was last updated
+medication_schedule
+id (primary key, serial): unique medication schedule identifier
+prescription_id (integer, foreign key references prescriptions.id): prescription that this schedule belongs to
+dose_date (date): date of the medication dose
+dose_time (time): time of the medication dose
+taken (boolean): whether the medication was taken
+created_at (timestamp): timestamp when the medication schedule was created
+updated_at (timestamp): timestamp when the medication schedule was last updated
+medications
+id (primary key, serial): unique medication identifier
+name (varchar): name of the medication
+description (text): description of the medication
+rxnorm_id (varchar): RxNorm identifier for the medication
+created_at (timestamp): timestamp when the medication was created
+updated_at (timestamp): timestamp when the medication was last updated
+rxnorm_map
+id (primary key, serial): unique RxNorm map identifier
+medication_id (integer, foreign key references medications.id): medication that this map belongs to
+rxnorm_id (varchar): RxNorm identifier for the medication
+created_at (timestamp): timestamp when the RxNorm map was created
+updated_at (timestamp): timestamp when the RxNorm map was last updated
+Relationships:
+
+A user can have multiple prescriptions (one-to-many).
+A prescription belongs to one user (many-to-one).
+A prescription can have multiple medication schedules (one-to-many).
+A medication schedule belongs to one prescription (many-to-one).
+A medication can have multiple RxNorm maps (one-to-many).
+An RxNorm map belongs to one medication (many-to-one).
+Indexes:
+
+Create an index on the users.username column to improve login performance.
+Create an index on the prescriptions.user_id column to improve prescription retrieval performance.
+Create an index on the medication_schedule.prescription_id column to improve medication schedule retrieval performance.
+This schema assumes that each user can have multiple prescriptions, each prescription can have multiple medication schedules, and each medication can have multiple RxNorm maps. The RxNorm map table is used to store the RxNorm identifiers for each medication, which can be used to retrieve medication information from the RxNorm API.
+
+Note that this is just one possible database schema, and you may need to modify it based on your specific requirements. Additionally, you will need to create the necessary database constraints, such as foreign key constraints, to ensure data consistency.
