@@ -1,6 +1,6 @@
-// src/app/services/medication.service.ts
 import { Injectable } from '@angular/core';
 import { Medication } from '../models/medication.model';
+import { of } from 'rxjs'; // Import 'of' from RxJS
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class MedicationService {
     this.medications.push(medication);
   }
 
-  getMedications(): Medication[] {
-    return this.medications;
+  getMedications() { 
+    return of(this.medications); // Now returns an Observable
   }
 
   deleteMedication(id: number) {

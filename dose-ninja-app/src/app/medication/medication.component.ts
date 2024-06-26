@@ -1,7 +1,8 @@
 // src/app/medication-management/medication-management.component.ts
 import { Component, OnInit } from '@angular/core';
-import { MedicationService } from '../services/medication.service';
-import { Medication } from '../models/medication.model';
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3886650150.
+import { Medication } from '../app/models/medication.model';
+import { MedicationService } from '../app/services/medication.service';
 
 @Component({
   selector: 'app-medication-management',
@@ -15,16 +16,22 @@ export class MedicationManagementComponent implements OnInit {
   constructor(private medicationService: MedicationService) { }
 
   ngOnInit(): void {
-    this.medications = this.medicationService.getMedications();
+    this.medicationService.getMedications().subscribe(medications => {
+      this.medications = medications; // Now 'medications' is a Medication[]
+    });
   }
 
-  addMedication(medication: Medication) {
-    this.medicationService.addMedication(medication);
-    this.medications = this.medicationService.getMedications();
-  }
+addMedication(medication: Medication) {
+  this.medicationService.addMedication(medication);
+  this.medicationService.getMedications().subscribe(medications => {
+    this.medications = medications; 
+  });
+}
 
-  deleteMedication(id: number) {
-    this.medicationService.deleteMedication(id);
-    this.medications = this.medicationService.getMedications();
-  }
+deleteMedication(id: number) {
+  this.medicationService.deleteMedication(id);
+  this.medicationService.getMedications().subscribe(medications => {
+    this.medications = medications;
+  });
+}
 }

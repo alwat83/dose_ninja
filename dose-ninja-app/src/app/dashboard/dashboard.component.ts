@@ -14,7 +14,7 @@ import { MedicationService } from '../app/services/medication.service';
   `
 })
 export class DashboardComponent implements OnInit {
-  medications: any[];
+  medications: any[] = [];
 
   constructor(private medicationService: MedicationService) { }
 
