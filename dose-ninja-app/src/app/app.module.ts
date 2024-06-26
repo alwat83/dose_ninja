@@ -1,21 +1,20 @@
 
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { LoginComponent }
- from './login/login.component';
+import { LoginComponent } from './login/login.component';
 import { MedicationManagementComponent } from './medication-management/medication-management.component';
 import { AppRoutingModule } from './app.routes';
-import { MedicationService } from './services/medication.service'; // Adjusted path
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
+import { MedicationService } from './app/services/medication.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, MedicationManagementComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule], 
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [MedicationService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [MedicationManagementComponent] // Consider if this is really needed
 })
 export class AppModule {}
