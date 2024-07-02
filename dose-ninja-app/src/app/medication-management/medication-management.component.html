@@ -1,17 +1,15 @@
 <div class="medication-management">
-    <h1>Medication Management</h1>
-    <ul>
-      <li *ngFor="let medication of medications">
-        {{ medication.name }} ({{ medication.dose }})
-        <button (click)="deleteMedication(medication.id)">Delete</button>
-      </li>
-    </ul>
-    <form (ngSubmit)="addMedication()">
-      <label for="name">Name:</label>
-      <input type="text" id="name" [(ngModel)]="newMedication.name">
-      <label for="dose">Dose:</label>
-      <input type="text" id="dose" [(ngModel)]="newMedication.dose">
-      <button type="submit">Add Medication</button>
-    </form>
-  </div>
-  
+  <h1>Medication Management</h1>
+  <ul>
+    <li *ngFor="let medication of medications">
+      {{ medication.name }} ({{ medication.dose }})
+      <button (click)="deleteMedication(medication.id)">Delete</button>
+    </li>
+  </ul>
+  <form (ngSubmit)="addMedication()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="newMedication.name" name="medicationName"> <label for="dose">Dose:</label>
+    <input type="text" id="dose" [(ngModel)]="newMedication.dose" name="medicationDose"> 
+    <button type="submit">Add Medication</button>
+  </form>
+</div>
